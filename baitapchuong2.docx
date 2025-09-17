@@ -1,0 +1,144 @@
+#Bai4
+Kiểu dữ liệu trong Python gồm:
+    -Số: int, float, complex
+    -Chuỗi: string 
+    -Luận lý: bool
+    -Danh sách và bộ: list, tuple, range
+    -Tập hợp: set, frozenset
+    -Từ điển: dict
+    -Đặc biệt: NonType (None)
+
+#Bai5
+Ghi chú một dòng: Dùng dấu # ở đầu dòng hoặc sau câu lệnh.
+Ghi chú nhiều dòng: Không có cú pháp riêng, thường dùng '''...''' hoặc """..."""(chuỗi nhiều dòng) để ghi chú.
+
+#Bai6
+/: chia thực (luôn trả về float).
+//: chia lấy phần nguyên.
+%: chia lấy dư.
+**: lũy thừa.
+and: đúng nếu cả 2 vế đều đúng.
+or: đúng nếu ít nhất 1 vế đúng.
+is: kiểm tra 2 biến có cùng tham chiếu dến 1 đối tượng trong bộ nhớ hay không.
+
+#Bai7
+input(): đọc dữ liệu dạng chuỗi.
+Ép kiểu (int(), float(),...) khi cần.
+Dùng split() + map() để nhập nhiều giá trị một dòng.
+
+#Bai8
+Các lỗi thường gặp trong Python:
+    - Lỗi cú pháp (SyntaxError)
+    - Lỗi thời gian chạy (Runtime Error/Exception) 
+        + ZeroDivisionError: chia cho 0.
+        + ValueError: sai kiểu dữ liệu nhập vào.
+        + IndexError: truy cập sai chỉ số list.
+        + KeyError: truy cập key không tồn tại trong dict.
+        + TypeError: sai kiểu toán tử.
+    - Lỗi logic: cú pháp đúng, chạy không báo lỗi nhưng kết quả sai.
+Cách bắt lỗi trong Python:
+    - Dùng try - except để xử lý ngoại lệ.
+    - Thêm các khối mở rộng
+        + else: chạy khi không có lỗi.
+        + finally: luôn luôn chạy dù có lỗi hay không (thường để giải phóng tài nguyên).
+
+#Bai9
+(a) i1 + (i2 * i3)
+    Tính i2 * i3 = 5 * (-3) = -15
+    Rồi cộng i1: 2 + (-15) = -13
+Kết quả: -13
+
+(b) i1 * (i2 + i3)
+    Tính i2 + i3 = 5 + (-3) = 2
+    Rồi nhân với i1: 2 * 2 = 4
+Kết quả: 4
+
+(c) i1 / (i2 + i3)
+    Tính i2 + i3 = 2
+    Chia i1 cho 2: 2 / 2 = 1.0 (phép chia / trả về số thực trong Python)
+Kết quả: 1.0
+
+(d) i1 // (i2 + i3)
+    i2 + i3 = 2
+    Phép chia lấy phần nguyên: 2 // 2 = 1
+Kết quả: 1
+
+(e) i1 / i2 + i3
+    Phép chia: 2 / 5 = 0.4 (float)
+    Cộng i3: 0.4 + (-3) = -2.6
+Kết quả: -2.6
+
+(f) i1 // i2 + i3
+    Phép chia lấy phần nguyên: 2 // 5 = 0 (2 chia 5 ra 0 dư 2, phần nguyên là 0)
+    Cộng i3: 0 + (-3) = -3
+Kết quả: -3
+
+(g) 3 + 4 + 5 / 3
+    Phép chia trước: 5 / 3 = 1.6666...
+    Cộng lần lượt: 3 + 4 + 1.6666 = 8.6666...
+Kết quả: 8.666666666666666
+
+(h) 3 + 4 + 5 // 3
+    Phép chia lấy phần nguyên: 5 // 3 = 1
+    Cộng: 3 + 4 + 1 = 8
+Kết quả: 8
+
+(i) (3 + 4 + 5) / 3
+    Cộng trong ngoặc: 3 + 4 + 5 = 12
+    Chia: 12 / 3 = 4.0
+Kết quả: 4.0
+
+(j) (3 + 4 + 5) // 3
+    Cộng trong ngoặc: 12
+    Chia lấy phần nguyên: 12 // 3 = 4
+Kết quả: 4
+
+(k) d1 + (d2 * d3)
+    Nhân: 5.0 * (-0.5) = -2.5
+    Cộng: 2.0 + (-2.5) = -0.5
+Kết quả: -0.5
+
+(l) d1 + d2 * d3
+    Theo quy tắc ưu tiên nhân trước: 5.0 * (-0.5) = -2.5
+    2.0 + (-2.5) = -0.5
+Kết quả: -0.5
+
+(m) d1 / d2 - d3
+    Chia: 2.0 / 5.0 = 0.4
+    Trừ: 0.4 - (-0.5) = 0.4 + 0.5 = 0.9
+Kết quả: 0.9
+
+(n) d1 / (d2 - d3)
+    Tính trong ngoặc: 5.0 - (-0.5) = 5.0 + 0.5 = 5.5
+    Chia: 2.0 / 5.5 ≈ 0.3636363636
+Kết quả: khoảng 0.3636
+
+(o) d1 + d2 + d3 / 3
+    Chia: -0.5 / 3 ≈ -0.1666667
+    Cộng: 2.0 + 5.0 + (-0.1666667) = 7.0 - 0.1666667 = 6.8333333
+Kết quả: khoảng 6.8333
+
+(p) (d1 + d2 + d3) / 3
+    Cộng trong ngoặc: 2.0 + 5.0 + (-0.5) = 6.5
+    Chia: 6.5 / 3 ≈ 2.1666667
+Kết quả: khoảng 2.1667
+
+(q) d1 + d2 + (d3 / 3)
+    Tương tự (o), chia trong ngoặc: -0.5 / 3 ≈ -0.1666667
+    Cộng: 2.0 + 5.0 + (-0.1666667) = 6.8333333
+Kết quả: khoảng 6.8333
+
+(r) 3 * (d1 + d2) * (d1 - d3)
+    Tính trong ngoặc đầu: 2.0 + 5.0 = 7.0
+    Tính trong ngoặc thứ hai: 2.0 - (-0.5) = 2.0 + 0.5 = 2.5
+    Nhân: 3 * 7.0 * 2.5 = 3 * 17.5 = 52.5
+Kết quả: 52.5
+
+#Bai10
+(a) x = x + 1 → x += 1
+(b) x = x / 2 → x /= 2
+(c) x = x - 1 → x -= 1
+(d) x = x + y → x += y
+(e) x = x - (y + 7) → x -= (y + 7)
+(f) x = 2 * x → x *= 2
+(g) number_of_closed_cases = number_of_closed_cases + 2 * ncc → number_of_closed_cases += 2 * ncc
